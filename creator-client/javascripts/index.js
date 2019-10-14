@@ -1,24 +1,3 @@
-let posts = [
-    {
-        title: "Luke's great adventure",
-        ship: "Luke Skywalker",
-        planet: "Tattooine",
-        content: "Luke and Han get the Falcon stuck again!"
-    },
-    {
-        title: "Hi Wookie",
-        author: "Ewok",
-        planet: "somewhere over the moon",
-        content: "Hey where'd that second moon come from?"
-    },
-    {
-        title: "The princess",
-        author: "Rey",
-        planet: "Endoor",
-        content: "I think Leia is my mom?"
-    }
-];
-
 const BASE_URL = 'http://localhost:3000'
 
 let colors = ["red", "green", "blue"];
@@ -46,7 +25,7 @@ function formatWorld(world) {
     return `
     <div class="card">
         <div class="card-content">
-            <span class="card-title">${world.title}</span>
+            <span class="card-title">${world.user.name}</span>
             <p>Ship:${world.user.ship}</p>
             <p>Planet:${world.planet}</p>
             <p>${world.content}</p>
