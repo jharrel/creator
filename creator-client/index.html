@@ -55,6 +55,8 @@
             </div>
             
             <input type="submit" value="Create Character" class="btn">
+
+            <input type="button" value="Remove All" onclick="removeAll()">
             </form>
         </div>
 
@@ -63,7 +65,34 @@
               </div>
         </div>
 
-    <script src="javascripts/index.js"></script>
+<!-- Delete Button -->
+<div id="parentDiv" style="border: 1px solid red; padding: 10px;">
+    My name is <b>parentDiv</b>
+    <div id="child1" style="border: 1px solid green; padding: 10px; margin: 10px;">
+         My name is <b>child1</b>.
+    </div>
+    <div id="child2" style="border: 1px solid blue; padding: 10px; margin: 10px;">
+         My name is <b>child2</b>.
+    </div>
+    <div id="child3" style="border: 1px solid purple; padding: 10px; margin: 10px;">
+         My name is <b>child3</b>.
+    </div>
+</div>
+<p>&nbsp;</p>
+Name of child element to be removed: <input id="nameOfChild" type="text" value="child2">
+<br><br>
+For those who are lazy in typing in the actual names, we have these handy-dandy buttons:
+<input type="button" value="Remove child1" onClick="removeElement('parentDiv', 'child1');">
+<input type="button" value="Remove child2" onClick="removeElement('parentDiv', 'child2');">
+<input type="button" value="Remove child3" onClick="removeElement('parentDiv', 'child3');">
+<input type="button" value="Remove parentDiv" onClick="removeElement('parentDiv', 'parentDiv');">
+
+<!-- JavaScript Tags-->
+
+        <script src="javascripts/models/world.js"></script>
+        <script src="javascripts/models/user.js"></script>
+        <script src="javascripts/service/api.js"></script>
+        <script src="javascripts/index.js"></script>
  
  
  </body>
