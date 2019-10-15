@@ -18,7 +18,7 @@ function createData() {
 }
 
 function displayWorld(world) {
-    document.getElementsByClassName("post-lists")[0].innerHTML += formatWorld(world);
+    document.getElementsByClassName("character-lists")[0].innerHTML += formatWorld(world);
 }
 
 function formatWorld(world) {
@@ -72,11 +72,11 @@ function loadPosts() {
 }
 
 function addClickEventToPostListHeader() {
-    document.querySelector('.post-lists h3').addEventListener('click', changeColor);
+    document.querySelector('.character-lists h3').addEventListener('click', changeColor);
 }
 
 function addSubmitEventToForm() {
-    document.getElementById("blog-form").addEventListener('submit', submitForm);
+    document.getElementById("character-form").addEventListener('submit', submitForm);
 }
 
 // function addMouseOverOverToStarWars() {
