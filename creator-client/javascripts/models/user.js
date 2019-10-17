@@ -23,4 +23,4 @@ class User {
         return new User(name, ship);
       }
     }
-  }
+}

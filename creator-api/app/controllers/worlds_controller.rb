@@ -36,8 +36,12 @@ class WorldsController < ApplicationController
 
   # DELETE /worlds/1
   def destroy
+    @world = World.find(params[:id])
     @world.destroy
+    # @world.destroy
+    #     render json: { notice: "The user has been deleted by Order 66" }
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

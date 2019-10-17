@@ -15,33 +15,13 @@ function createData() {
     }
 }
 
+
+
 function clearForm() {
   document.getElementById("title").value = ""
   document.getElementById("planet").value = ""
-  document.getElementById("author").value = ""
+  document.getElementById("ship").value = ""
   document.getElementById("content").value = ""
-}
-
-function changeColor(event) {
-  this.style.color = colors[index++];
-  if(index == maxIndex) {
-    index = 0;
-  }
-}
-
-function removeElement(parentDiv, childDiv){
-  if (childDiv == parentDiv) {
-       alert("The parent div cannot be removed.");
-  }
-  else if (document.getElementById(childDiv)) {     
-       var child = document.getElementById(childDiv);
-       var parent = document.getElementById(parentDiv);
-       parent.removeChild(child);
-  }
-  else {
-       alert("Child div has already been removed or does not exist.");
-       return false;
-  }
 }
 
 
@@ -53,14 +33,10 @@ function addSubmitEventToForm() {
   document.getElementById("character-form").addEventListener('submit', Api.submitWorld);
 }
 
-function addMouseOverToWelcome() {
-  document.querySelector('h1').addEventListener('mouseover', changeColor);
-}
-
 document.addEventListener('DOMContentLoaded', function () {
   // We have access to all of the DOM elements
   addSubmitEventToForm();
-  // addMouseOverToWelcome();
+  // World.deleteWorld();
   Api.getWorlds();
 });
 

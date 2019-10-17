@@ -17,15 +17,44 @@ class World {
                   <p>Ship:${this.user.ship}</p>
                    <p>Planet:${this.planet}</p>
                    <p>${this.content}</p>
+                   <br>
+                   <button class="delete-world-btn">Remove</button>
+              </div>
+            </div>
            `
       }
-  
+
+//this.http.delete(this.url+'/'+item.Id, httpOptions) due to you defined the URI of your deletion service is patients/{id}.
+
+      deleteWorld (event) {
+        event.preventDefault()
+        fetch('http://localhost:3000/api/worlds', {
+          method: 'DELETE'
+          })
+        .then(() => {
+          document.getElementById(`${this.id}`)
+          World.all = World.all.filter(world =>
+            world.id !== this.id)
+        })
+      }
+
     display() {
+      document.getElementsByClassName("character-lists")[0].innerHTML += this.template();
+
       // display post details in a card in the post-lists
-    document.getElementsByClassName("character-lists")[0].innerHTML += this.template();
-}
-  
-    static renderAll() {
-      World.all.forEach(world => world.display())
+
+      let deleteBtn = document.querySelector('button.delete-world-btn')
+      deleteBtn.setAttribute('class', 'delete-world-btn')
+      deleteBtn.innerText = 'Remove Testing'
+      deleteBtn.addEventListener('click', event => this.deleteWorld(event))
     }
-  }
+
+
+
+
+
+    static renderAll() {
+          World.all.forEach(world => world.display())
+    }
+
+} //End of World Class
