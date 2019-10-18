@@ -5,15 +5,29 @@ class Api {
       fetch(Api.baseUrl + '/api/worlds')
         .then(resp => resp.json())
         .then(worlds => {
-          worlds.forEach(world => {
-            let user = User.findOrCreate(world.user.name, world.user.ship);
-            let newWorld = new World(user, world.planet, world.content);
+          worlds.forEach(worldData => {
+            let user = User.findOrCreate(worldData.user.name, worldData.user.ship);
+            worldData.user = user
+            let newWorld = new World(worldData);
           })
           World.renderAll();
         })
         .catch(errors => console.log('d', errors))
     }
   
+    // static getWorlds() {
+    //   fetch(Api.baseUrl + '/api/worlds')
+    //     .then(resp => resp.json())
+    //     .then(worlds => {
+    //       worlds.forEach(world => {
+    //         let user = User.findOrCreate(world.user.name, world.user.ship);
+    //         let newWorld = new World(user, world.planet, world.content, world.id);
+    //       })
+    //       World.renderAll();
+    //     })
+    //     .catch(errors => console.log('d', errors))
+    // }
+
     static submitWorld(event) {
       event.preventDefault();
       let data = createData();
@@ -28,7 +42,7 @@ class Api {
         .then(response => response.json())
         .then(data => {
           let user = User.findOrCreate(data.user.name, data.user.ship);
-          let world = new World(user, data.planet, data.content);
+          let world = new World(data);
           world.display();
         })
     }
