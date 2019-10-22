@@ -18,7 +18,7 @@ function createData() {
 
 
 function clearForm() {
-  document.getElementById("title").value = ""
+  document.getElementById("name").value = ""
   document.getElementById("planet").value = ""
   document.getElementById("ship").value = ""
   document.getElementById("content").value = ""
@@ -30,6 +30,7 @@ function addClickEventToPostListHeader() {
 }
 
 function addSubmitEventToForm() {
+  //When the page 
   document.getElementById("character-form").addEventListener('submit', Api.submitWorld);
 }
 

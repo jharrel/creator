@@ -52,8 +52,11 @@ class World {
       
     }
 
+
+
     static renderAll() {
-          World.all.forEach(world => world.display())
+         let sortedWorlds =  World.all.sort((a, b) => (a.user.name > b.user.name) ? 1 : -1)
+        sortedWorlds.forEach(world => world.display())
     }
 
 } //End of World Class

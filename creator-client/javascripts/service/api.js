@@ -30,17 +30,21 @@ class Api {
 
     static submitWorld(event) {
       event.preventDefault();
+      //createData was created by my strong params inside index.js
       let data = createData();
+      //data created is fetched from my base URL
       fetch(Api.baseUrl + '/api/worlds', {
         method: "POST",
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
+        //data is then sent into a string and then converted into JS object into a string with JSON.stringify(data)
         body: JSON.stringify(data)
       })
         .then(response => response.json())
         .then(data => {
+          //user is found or created by user.js
           let user = User.findOrCreate(data.user.name, data.user.ship);
           let world = new World(data);
           world.display();

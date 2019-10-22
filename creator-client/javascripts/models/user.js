@@ -15,6 +15,7 @@ class User {
       return User.all.find(user => user.name === name);
     }
   
+
     static findOrCreate(name, ship) {
       let user = User.find(name);
       if (user) {
